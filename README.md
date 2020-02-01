@@ -112,4 +112,31 @@
     * 每一步判定是否有一个是空，此处注意None是没有p.val以及p.next的
     * 两数与上一步进位相加、计算有无进位、节点赋值并添加到最终链表中    
 ## 无重复字符的最长子串
+* **解析部分**
+    * 实际上是一种移动窗口问题，将多层嵌套循环变为一层
+    * 一个begin,一个end,只需当end到达终点即可
+* **解题部分**
+
+    ```Python
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        maxlen=0
+        begin=0
+        end=0
+        str_dict={}
+        str_len=len(s)
+        for end in range(str_len):
+            cal_end=end
+            if s[end] in str_dict:
+                begin=max(begin,str_dict[s[end]]+1)
+                if begin>str_dict[s[end]]:
+                    cal_end=end
+                else:
+                    cal_end=end-1
+            str_dict[s[end]]=end
+            maxlen=max(maxlen,cal_end- begin+1)
+        return maxlen
+    ```
+    * 对于此问题，就是在移动end的同时，遇到相同情况对begin的位置进行更改
+    * 期间的路径用str_dict存储
+    * 此处应当注意相同的可能已经在更新后的begin之前，以及由于此原因再次更新时会出现begin前移的情况，所以采取max
 

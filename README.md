@@ -73,11 +73,6 @@
     * 此部分为Python中链表的节点定义，初始化时node=ListNode(x)即可
     * Python中NULL(空字符)，None(空对象)，所以如果p==None他是没有属性的,即p.val and p.next都是不存在的
 * **解题部分**
-    * 提前预留好最终链表的头节点head，以及每一步标记节点c_node，进位代表carry
-    * while的循环判定，只要没加完（链表指针至少有一个不为空/仍然存在进位），就继续进行循环
-    * 每一步判定是否有一个是空，此处注意None是没有p.val以及p.next的
-    * 两数与上一步进位相加、计算有无进位、节点赋值并添加到最终链表中
-    
 
     ```Python
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -112,3 +107,9 @@
                 c_node=c_node.next
         return head
     ```
+    * 提前预留好最终链表的头节点head，以及每一步标记节点c_node，进位代表carry
+    * while的循环判定，只要没加完（链表指针至少有一个不为空/仍然存在进位），就继续进行循环
+    * 每一步判定是否有一个是空，此处注意None是没有p.val以及p.next的
+    * 两数与上一步进位相加、计算有无进位、节点赋值并添加到最终链表中    
+## 无重复字符的最长子串
+

@@ -77,6 +77,7 @@
     * while的循环判定，只要没加完（链表指针至少有一个不为空/仍然存在进位），就继续进行循环
     * 每一步判定是否有一个是空，此处注意None是没有p.val以及p.next的
     * 两数与上一步进位相加、计算有无进位、节点赋值并添加到最终链表中
+    
 
     ```Python
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
